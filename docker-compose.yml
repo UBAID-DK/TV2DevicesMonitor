@@ -1,0 +1,67 @@
+# version: "3.8"
+
+# services:
+#   tv2_monitor:
+#     build:
+#       context: ./TV2DeviceMonitor # Look for Dockerfile inside this folder
+#     ports:
+#       - "8080:80"
+#       - "5000:5000"
+#     environment:
+#       - ASPNETCORE_URLS=http://+:80
+#     container_name: tv2_monitor
+#     restart: unless-stopped
+
+#   prometheus:
+#     image: prom/prometheus
+#     volumes:
+#       - ./TV2DeviceMonitor/docker/prometheus.yml:/etc/prometheus/prometheus.yml
+#     ports:
+#       - "9090:9090"
+#     container_name: prometheus
+#     restart: unless-stopped
+
+#   grafana:
+#     image: grafana/grafana
+#     ports:
+#       - "3001:3000"
+#     container_name: grafana
+#     restart: unless-stopped
+
+version: "3.8"
+
+networks:
+  monitor_net:
+
+services:
+  prometheus:
+    image: prom/prometheus
+    networks:
+      - monitor_net
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./TV2DeviceMonitor/docker/prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - tv2_monitor
+
+  grafana:
+    image: grafana/grafana
+    networks:
+      - monitor_net
+    ports:
+      - "3001:3000"
+    depends_on:
+      - prometheus
+
+  tv2_monitor:
+    build:
+      context: ./TV2DeviceMonitor # Look for Dockerfile inside this folder
+    networks:
+      - monitor_net
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_URLS=http://+:5000
+    container_name: tv2_monitor
+    restart: unless-stopped

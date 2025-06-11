@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: "tv2-device-monitor"
+    static_configs:
+      - targets: ["tv2_monitor:5000"]

@@ -1,0 +1,39 @@
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Logs
+*.log
+
+# Runtime files
+*.runtimeconfig.dev.json
+
+# NuGet packages
+*.nupkg
+*.snupkg
+.nuget/
+
+# DotNet tools
+.dotnet-tools.json
+
+# Environment files
+.env
+
