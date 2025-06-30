@@ -9,7 +9,7 @@ using TV2DeviceMonitor.Core.Interfaces;
 using TV2DeviceMonitor.Core.Models;
 using TV2DeviceMonitor.Core.Services;
 using Xunit;
-using System.Net; // Add this for HttpStatusCode
+using System.Net;
 
 namespace TV2DeviceMonitor.Tests
 {

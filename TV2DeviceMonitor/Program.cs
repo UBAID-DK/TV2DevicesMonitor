@@ -43,9 +43,6 @@ using Prometheus;
 using TV2DeviceMonitor.Core.Interfaces;
 using TV2DeviceMonitor.Core.Services;
 
-
-// [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("TV2DeviceMonitor.Tests")]
-
 public partial class Program
 {
     /// <summary>
