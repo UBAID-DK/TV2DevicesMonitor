@@ -10,13 +10,13 @@ namespace TV2DeviceMonitor.Core.Models
         /// The friendly name of the device.
         /// </summary>
         [Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// The IP address of the device.
         /// </summary>
         [Required]
-        public string IpAddress { get; set; }
+        public string? IpAddress { get; set; }
 
         /// <summary>
         /// Indicates whether this device is critical and must always be online.
